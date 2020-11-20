@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 //import {ColorPropType} from 'react-native';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import React from 'react';
 
 export default function Avatar({size, backgroundColor, initials}){
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     }
 });
 
-Avatar.PropTypes = {
-    initials: PropTypes.string.isRequired,
-    size: PropTypes.number.isRequired,
+Avatar.propTypes = {
+    initials: propTypes.string.isRequired,
+    size: propTypes.number.isRequired,
     //backgroundColor: ColorPropType.isRequired,
 };

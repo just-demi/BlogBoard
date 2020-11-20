@@ -1,5 +1,5 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import React from 'react';
 
 import Avatar from './Avatar';
@@ -26,10 +26,10 @@ export default function AuthorRow({fullname, linkText, onPressLinkText}){
     )
 }
 
-AuthorRow.PropTypes = {
-    fullname: PropTypes.string.isRequired,
-    linkText: PropTypes.string.isRequired,
-    onPressLinkText: PropTypes.func.isRequired,
+AuthorRow.propTypes = {
+    fullname: propTypes.string.isRequired,
+    linkText: propTypes.string.isRequired,
+    onPressLinkText: propTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({
