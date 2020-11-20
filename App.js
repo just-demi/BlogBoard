@@ -2,9 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {Image, StyleSheet, Text, View } from 'react-native';
 
-
-import Homepage from './src/Homepage';
-import Avatar from './src/components/Avatar';
 import { render } from 'react-dom';
 import react from 'react';
 import Constants from 'expo-constants';
@@ -22,7 +19,7 @@ export default class App extends react.Component{
       onPressLinkText={()=>{
         console.log('Pressed link!');
       }}
-      image={{uri: 'https://unsplash.it/700/700'}}
+      image={{uri: 'https://unsplash.it/300/700'}}
     />
     </View>
   );
