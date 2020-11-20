@@ -8,16 +8,28 @@ import { render } from 'react-dom';
 import react from 'react';
 import Constants from 'expo-constants';
 
+import AuthorRow from './src/components/AuthorRow';
+
 export default class App extends react.Component{
   render(){
   return (
     <View style={styles.container}>
-    <Avatar initials={'FL'} size={35} backgroundColor={'teal'} />
+    <AuthorRow 
+      fullname={'First Last'}
+      linkText={'Comments'}
+      onPressLinkText={()=>{
+        console.log('Pressed link!');
+      }}
+    />
     </View>
   );
   }
-  //return <Homepage />;
+
 }
+
+/*export default function App(){
+  return <Homepage />;
+}*/
 
 const styles = StyleSheet.create({
   container: {
