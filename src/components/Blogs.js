@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
 import propTypes from 'prop-types';
 import React from 'react';
 import { Image as ImageNative, Platform } from 'react-native';
@@ -8,10 +8,18 @@ import AuthorRow from './AuthorRow';
 export default class Blogs extends React.Component{
     static propTypes = {
         fullname: propTypes.string.isRequired,
-        //image: propTypes.object.isRequired,
+        image: propTypes.object,
         linkText: propTypes.string,
         onPressLinkText: propTypes.func,
     };
+
+    state = {
+       loading: true, 
+    };
+
+    handleLoad = () =>{
+        this.setState({loading: false});
+    }
 
     static defaultProps = {
         linkText: '',
@@ -20,6 +28,7 @@ export default class Blogs extends React.Component{
 
     render(){
         const {fullname, image, linkText, onPressLinkText}= this.props;
+        const {loading} = this.state;
         return(
             <View>
                 <AuthorRow
@@ -27,7 +36,12 @@ export default class Blogs extends React.Component{
                   linkText={linkText}
                   onPressLinkText={onPressLinkText}
                 />
-                <Image style={styles.image} source={{uri: 'https://unsplash.it/600/600'}}/>
+                
+                <Image 
+                style={styles.image} 
+                source={image}
+                onLoad={this.handleLoad}
+                 />
             </View>
         );
     }
@@ -36,6 +50,7 @@ export default class Blogs extends React.Component{
 const styles = StyleSheet.create({
     image:{
         aspectRatio: 1,
+        //position: 'absolute',
         ...Platform.select({
             android:{
                 backgroundColor: 'rgba(0,0,0,0.02)',
@@ -43,7 +58,7 @@ const styles = StyleSheet.create({
             default:{
                 backgroundColor: 'rgba(0,0,0,0.02)',
                 height: '500%',
-                width: '100%',
+                width: '30%',
             }
         })
         
